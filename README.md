@@ -1,7 +1,7 @@
 # DS_FinalProject
 
 Byron Dickerson
-
+Clara Comstock
 **Purpose:** To complete a full data science project that benefits society
 
 **Specification:**
