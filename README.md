@@ -1,4 +1,5 @@
 # DS_FinalProject
+
 ```
 Byron Dickerson
 Clara Comstock
@@ -163,3 +164,4 @@ All team submission emails should come from the team leads.
 -15 lack of comments in the code
 -100 not attending the final presentations 
 ```
+
