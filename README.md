@@ -1,6 +1,7 @@
 # DS_FinalProject
 
 ```
+Ahmed Mohamed
 Byron Dickerson
 Clara Comstock
 Julia Goyco
