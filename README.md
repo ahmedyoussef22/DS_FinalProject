@@ -3,6 +3,7 @@
 Byron Dickerson
 Clara Comstock
 Julia Goyco
+Julia Goyco
 ```
 **Purpose:** To complete a full data science project that benefits society
 
