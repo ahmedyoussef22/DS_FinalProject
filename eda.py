@@ -12,7 +12,7 @@ ratesData = pd.read_csv('pertusisRates2010_2015.csv',encoding = 'ISO-8859-1')
 infantData = pd.read_csv('InfantData.csv',encoding = 'ISO-8859-1')
 
 # # # Data Cleaning # # # 
-# dstudentData = studentData.drop(['SCHOOL','school_code'],axis = 1)
+# studentData = studentData.drop(['SCHOOL','school_code'],axis = 1)
 #
 # #drop years 2000-2010 and 2015
 # for i in range(2000,2010):
@@ -61,14 +61,14 @@ def barcharts():
     plt.ylabel('Number of students with DTap Vaccine')
     #plt.show()
     plt.savefig('nDTP_year.png')
-    
+
     plt.bar(studentData['schoolType'],studentData['nDTP'])
     #plt.title('My title')
     plt.xlabel('school type')
     plt.ylabel('Number of students with DTap Vaccine')
     #plt.show()
     plt.savefig('nDTP_schoolType.png')
-    
+
     plt.bar(studentData['COUNTY'],studentData['nDTP'])
     #plt.title('My title')
     plt.xlabel('county')
@@ -76,7 +76,14 @@ def barcharts():
     #plt.show()
     plt.savefig('nDTP_county.png')
     
+    plt.bar(studentData['schoolType'],studentData['Avg_nPBE'])
+    #plt.title('My title')
+    plt.xlabel('school type')
+    plt.ylabel('Average Number of students with personal belief exemption')
+    #plt.show()
+    plt.savefig('nPBE_schoolType.png')
+    
     
 #pairplots    
-#barcharts()
-scatterplots()
+barcharts()
+#scatterplots()
