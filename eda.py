@@ -12,7 +12,7 @@ ratesData = pd.read_csv('pertusisRates2010_2015.csv',encoding = 'ISO-8859-1')
 infantData = pd.read_csv('InfantData.csv',encoding = 'ISO-8859-1')
 
 # # # Data Cleaning # # # 
-# studentData = studentData.drop(['SCHOOL','school_code'],axis = 1)
+# dstudentData = studentData.drop(['SCHOOL','school_code'],axis = 1)
 #
 # #drop years 2000-2010 and 2015
 # for i in range(2000,2010):
@@ -39,29 +39,40 @@ for col in dataf.columns:
 # The pairs plot builds on two basic figures, the histogram and the scatter plot. The histogram on the diagonal allows
 # us to see the distribution of a single variable while the scatter plots on the upper and lower triangles show the 
 # relationship (or lack thereof) between two variables.
-
 def pairplots():
     sns.pairplot(studentData)
     plt.savefig('studentData_pairplot.png')
 
     sns.pairplot(dataf)
     plt.savefig('combinedDataPairplot.png')
+    
+def heatmap():
+    corr = dataf.corr()#dataf.loc[:,dataf.dtypes == 'float64'].]corr()
+    sns.heatmap(corr, xticklabels=corr.columns, yticklabels=corr.columns, cmap=sns.diverging_palette(220, 10, as_cmap=True))
+    plt.savefig('heatmap.png')
+    
+def boxplots():
+    sns.boxplot(x=studentData['schoolType'], y=studentData['Avg_nPBE'])
+    plt.show()
 
 def scatterplots():
     #One scatter plot per year
-    #plt.scatter(dataf['cases'], dataf['nDTP'], color='r')
-    jet=plt.get_cmap('jet')
-    plt.scatter(dataf['cases'], dataf['nDTP'], s=100, c=dataf['year'], cmap=jet)
-    plt.savefig('nDTP_rates.png')
+    # plt.scatter(dataf['avg_PBE'], dataf['avg_DTP'], color='b')
+ #    jet=plt.get_cmap('jet')
+ #    #plt.scatter(dataf['cases'], dataf['nDTP'], s=100, c=dataf['year'], cmap=jet)
+ #    plt.savefig('nDTP_nPME.png')
     
+    plt.scatter(dataf['rates'], dataf['avg_PBE'], color='b')
+    plt.savefig('rates_nPBE.png')
+   
 def barcharts():
-    plt.bar(studentData['year'],studentData['nDTP'])
-    #plt.title('My title')
-    plt.xlabel('year')
-    plt.ylabel('Number of students with DTap Vaccine')
-    #plt.show()
-    plt.savefig('nDTP_year.png')
-
+    # plt.bar(studentData['year'],studentData['nDTP'])
+ #    #plt.title('My title')
+ #    plt.xlabel('year')
+ #    plt.ylabel('Number of students with DTap Vaccine')
+ #    #plt.show()
+ #    plt.savefig('nDTP_year.png')
+ # #
     plt.bar(studentData['schoolType'],studentData['nDTP'])
     #plt.title('My title')
     plt.xlabel('school type')
@@ -75,15 +86,31 @@ def barcharts():
     plt.ylabel('Number of students with DTap Vaccine')
     #plt.show()
     plt.savefig('nDTP_county.png')
-    
-    plt.bar(studentData['schoolType'],studentData['Avg_nPBE'])
+
+    plt.bar(dataf['COUNTY'],dataf['rates'])
+    #plt.title('My title')
+    plt.xlabel('county')
+    #fix x tick labels
+    plt.ylabel('Percent of Pertussis cases')
+    #plt.show()
+    plt.savefig('avg_cases_county.png')
+  #
+    plt.bar(studentData['schoolType'],studentData['nPBE'])
     #plt.title('My title')
     plt.xlabel('school type')
-    plt.ylabel('Average Number of students with personal belief exemption')
+    plt.ylabel('Number of students with personal belief exemption')
     #plt.show()
     plt.savefig('nPBE_schoolType.png')
+ 
+    plt.bar(dataf['year'],dataf['PBE'])
+    #plt.title('My title')
+    plt.xlabel('year')
+    plt.ylabel('Number of students with personal belief exemption')
+    plt.savefig('nPBE_year.png')
+
     
-    
-#pairplots    
+#pairplots  
+#heatmap()
+#boxplots()  
 barcharts()
 #scatterplots()
