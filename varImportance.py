@@ -38,8 +38,9 @@ for col in dataf.columns:
     if 'Unnamed' in col:
         del dataf[col]
 
-X = dataf.drop("COUNTY", axis = 1)#iris.iloc[:,0:4]
-Y = dataf['cases']#iris.iloc[:,-1]
+X = dataf.drop("COUNTY", axis = 1)
+#dataf.astype('int64')#iris.iloc[:,0:4]
+Y = dataf['rates'].astype('int64')#iris.iloc[:,-1]
 names = dataf.columns.values
 
 # Build the model
