@@ -53,64 +53,92 @@ def heatmap():
     
 def boxplots():
     sns.boxplot(x=studentData['schoolType'], y=studentData['Avg_nPBE'])
-    plt.show()
+    #plt.show()
 
 def scatterplots():
     #One scatter plot per year
-    # plt.scatter(dataf['avg_PBE'], dataf['avg_DTP'], color='b')
- #    jet=plt.get_cmap('jet')
- #    #plt.scatter(dataf['cases'], dataf['nDTP'], s=100, c=dataf['year'], cmap=jet)
- #    plt.savefig('nDTP_nPME.png')
+    plt.scatter(dataf['avg_PBE'], dataf['avg_DTP'], color='b')
+    plt.xlabel('Average Number of students with Personel Belief Exemption')
+    plt.ylabel('Average Number of students with DTap Vaccine')
+    plt.savefig('avg_nDTP_nPBE.png')
+   
+    plt.scatter(dataf['cases'], dataf['nDTP'])#, s=100, c=dataf['year'], cmap=jet)
+    plt.savefig('nDTP_nPME.png')
+    plt.xlabel('cases')
+    plt.ylabel('Number of students with DTap Vaccine')
     
-    plt.scatter(dataf['rates'], dataf['avg_PBE'], color='b')
-    plt.savefig('rates_nPBE.png')
+    plt.scatter(dataf['nPME'], dataf['nPBE'], color='b')
+    plt.savefig('nPME_nPBE.png')
+    plt.xlabel('Number of students with Personel Belief Exemption')
+    plt.ylabel('Number of students with DTap Vaccine')
    
 def barcharts():
-    # plt.bar(studentData['year'],studentData['nDTP'])
- #    #plt.title('My title')
- #    plt.xlabel('year')
- #    plt.ylabel('Number of students with DTap Vaccine')
- #    #plt.show()
- #    plt.savefig('nDTP_year.png')
- # #
-    plt.bar(studentData['schoolType'],studentData['nDTP'])
+    plt.bar(studentData['year'],studentData['nDTP'])
     #plt.title('My title')
-    plt.xlabel('school type')
+    plt.xlabel('year')
+    plt.ylabel('Number of students with DTap Vaccine')
+    #plt.show()
+    plt.savefig('nDTP_year.png')
+
+    data = studentData.groupby(['schoolType']).sum()
+    print(data)
+    lst = ['Private', 'Public']
+    plt.bar(lst,data['nDTP']/data['n'])
+    #plt.title('My title')
+    plt.xlabel('School Type')
     plt.ylabel('Number of students with DTap Vaccine')
     #plt.show()
     plt.savefig('nDTP_schoolType.png')
 
-    plt.bar(studentData['COUNTY'],studentData['nDTP'])
+    data = studentData.groupby(['schoolType']).sum()
+#    print(data)
+    lst = ['Private', 'Public']
+    plt.bar(lst,data['nPBE']/data['n'])
     #plt.title('My title')
-    plt.xlabel('county')
-    plt.ylabel('Number of students with DTap Vaccine')
-    #plt.show()
-    plt.savefig('nDTP_county.png')
-
-    plt.bar(dataf['COUNTY'],dataf['rates'])
-    #plt.title('My title')
-    plt.xlabel('county')
-    #fix x tick labels
-    plt.ylabel('Percent of Pertussis cases')
-    #plt.show()
-    plt.savefig('avg_cases_county.png')
-  #
-    plt.bar(studentData['schoolType'],studentData['nPBE'])
-    #plt.title('My title')
-    plt.xlabel('school type')
-    plt.ylabel('Number of students with personal belief exemption')
+    plt.xlabel('School Type')
+    plt.ylabel('Number of students with Personal Belief Exemption')
     #plt.show()
     plt.savefig('nPBE_schoolType.png')
- 
-    plt.bar(dataf['year'],dataf['PBE'])
+
+    data = studentData.groupby(['COUNTY']).sum()
+    #print(data)
+    lst = list(set(dataf.COUNTY))
+    plt.figure(figsize=(20, 20))
+    plt.bar(lst,data['nDTP']/data['n'])
+    #plt.title('My title')
+    plt.xlabel('County', fontsize=22)
+    plt.xticks(rotation=75)
+    plt.ylabel('Number of students with DTap Vaccine', fontsize=22)
+    #plt.show()
+    plt.savefig('nDTP_county2.png')
+
+    plt.figure(figsize=(20, 20))
+    plt.bar(dataf['COUNTY'],dataf['rates'])
+    #plt.title('My title')
+    plt.xlabel('County', fontsize=22)
+    plt.xticks(rotation=75)
+    #fix x tick labels
+    plt.ylabel('Rate of Pertussis cases', fontsize=22)
+    #plt.show()
+    plt.savefig('rates_county.png')
+
+    plt.bar(dataf['year'],dataf['nPBE'])
     #plt.title('My title')
     plt.xlabel('year')
     plt.ylabel('Number of students with personal belief exemption')
     plt.savefig('nPBE_year.png')
 
-    
-#pairplots  
-#heatmap()
-#boxplots()  
+    plt.bar(dataf['year'],dataf['cases'])
+    #plt.title('My title')
+    plt.xlabel('year')
+    plt.ylabel('Number of Pertussis Cases')
+    plt.savefig('cases_year.png')
+
+
+
+pairplots
+heatmap()
+boxplots()
 barcharts()
-#scatterplots()
+scatterplots()
+
