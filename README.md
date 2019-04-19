@@ -1,4 +1,5 @@
-# DS_FinalProject
+# Intro to Data Science Final Project
+# Predicting Pertussis (Whooping Cough) Outbreaks in California Schools
 
 ```
 Ahmed Mohamed
@@ -7,6 +8,13 @@ Clara Comstock
 Julia Goyco
 Rick Djeuhon
 ```
+
+**Abstract**
+
+**Python Version: 3.6.8**
+
+**List of any additional packages required with installation instructions**
+
 **Purpose:** To complete a full data science project that benefits society
 
 **Specification:**
