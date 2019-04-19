@@ -11,6 +11,9 @@ Rick Djeuhon
 
 **Abstract**
 
+Pertussis is an illness that is contagious and affects all ages with the highest risk of harm/death being ages less than five, and as concluded by BMC Research Notes, despite the highest factor contributing to developing pertussis deals with infected person in the family/household, the highest protective mechanism against developing pertussis remains through vaccination, thus the uniqueness of this data science project is to forecast and predict pertussis high risk outbreaks based on data dealing with vaccinations. In an attempt to conquer the issue described, the team decided to break down the problem into three categories which are data visualization, data mapping, and machine learning. The first category focuses on how the data can be statistically represented in a manner that would help tackle the questions; Do Public Schools or Private Schools have higher vaccination rates?, Are Vaccination rates increasing or decreasing?, Which county has the highest outbreak rate? Which variables mainly affect the number of pertussis cases and which variables could be thrown out?. The second category of the project dealing with data mining would help further understand the data through geographical depiction, and from the geographical representations the data can be prepared and cleaned accordingly. The last category of the project deals with the machine learning aspect, and specifically the use of regression and classification to quantify and predict the risk of outbreaks per county, and thus anticipate which counties are at higher risk.
+
+
 **Python Version: 3.6.8**
 
 **List of any additional packages required with installation instructions**
