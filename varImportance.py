@@ -43,6 +43,15 @@ X = dataf.drop("COUNTY", axis = 1)
 Y = dataf['rates'].astype('int64')#iris.iloc[:,-1]
 names = dataf.columns.values
 
+
+#Random Forrest Classifier
+#Random Forrest classifier is a method for classification and regression. We used the feature_importances_ attribute of
+# this classifier in addition the data analysis to figure out which variables affect the number of pertussis cases the
+# most.  This information was used to drop out features that look like noise. To build the model I set the target variable
+# to be pertussis rates for 2010-2014 and plotted the results in a bar chart. From the model and the other data analysis
+# the top three factors are number of pertussis cases, number of students with DTap vaccine and number of exemptions. 
+
+
 # Build the model
 rfc = RandomForestClassifier()
 
