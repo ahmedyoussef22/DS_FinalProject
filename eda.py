@@ -36,9 +36,6 @@ for col in dataf.columns:
     if 'Unnamed' in col:
         del dataf[col]
 
-# The pairs plot builds on two basic figures, the histogram and the scatter plot. The histogram on the diagonal allows
-# us to see the distribution of a single variable while the scatter plots on the upper and lower triangles show the 
-# relationship (or lack thereof) between two variables.
 def pairplots():
     sns.pairplot(studentData)
     plt.savefig('studentData_pairplot.png')
@@ -133,12 +130,14 @@ def barcharts():
     plt.xlabel('year')
     plt.ylabel('Number of Pertussis Cases')
     plt.savefig('cases_year.png')
+    
 
 
 
-pairplots
+pairplots()
 heatmap()
 boxplots()
 barcharts()
 scatterplots()
+
 
