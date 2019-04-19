@@ -11,7 +11,7 @@ Rick Djeuhon
 
 **Abstract**
 
-**Python Version: **
+**Python Version: 3.6.8**
 
 **List of any additional packages required with installation instructions**
 
