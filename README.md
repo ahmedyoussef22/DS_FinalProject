@@ -1,6 +1,3 @@
-# Intro to Data Science Final Project
-# Predicting Pertussis (Whooping Cough) Outbreaks in California Schools
-
 ```
 Ahmed Mohamed
 Byron Dickerson
@@ -176,4 +173,3 @@ All team submission emails should come from the team leads.
 -15 lack of comments in the code
 -100 not attending the final presentations 
 ```
-
