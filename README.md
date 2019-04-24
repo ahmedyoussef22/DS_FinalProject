@@ -18,7 +18,7 @@ Pertussis is an illness that is contagious and affects all ages with the highest
 
 **Python Version: 3.6.8**
 
-**List of any additional packages required with installation instructions**
+**List of any additional packages required with installation instructions: None**
 
 **Purpose:** To complete a full data science project that benefits society
 
